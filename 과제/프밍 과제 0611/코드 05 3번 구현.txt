@@ -1,0 +1,154 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+  int running = 1;
+
+  char score[20][3][20] = {
+    {"Sophia", "20220001", "98"},
+    {"Olivia", "20220010", "96"},
+    {"Riley", "20220002", "88"},
+    {"Emma", "20220015", "77"},
+    {"Ava", "20220009", "82"},
+    {"Isabella", "20220014", "93"},
+    {"Aria", "20220020", "84"},
+    {"Amelia", "20220005", "79"},
+    {"Mia", "20220016", "90"},
+    {"Liam", "20220008", "80"},
+    {"Noah", "20220012", "89"},
+    {"Jackson", "20220004", "99"},
+    {"Aiden", "20220018", "78"},
+    {"Elijah", "20220017", "83"},
+    {"Grayson", "20220003", "92"},
+    {"Lucas", "20220013", "71"},
+    {"Oliver", "20220007", "72"},
+    {"Caden", "20220019", "68"},
+    {"Mateo", "20220011", "95"},
+    {"David", "20220006", "76"}
+  };
+
+  while (running==1) {
+    printf("1. 이름 오름차순 출력	2. 학번 오름차순 출력 \n");
+    printf("3. 점수 내림차순 출력	4. 이름 검색 \n");
+    printf("5. 종료 \n\n");
+    printf("번호를 선택하세요 : ");
+    
+    int choice;
+    
+    scanf(" %d", &choice);
+    printf("\n");
+
+    if (choice==1) {
+      for (int i=0; i<19; i++) {
+        for (int j=19 ; j>i; j--) {
+          if (strcmp(score[j-1][0], score[j][0]) > 0) {
+            char temp[20];
+            
+            strcpy(temp, score[j-1][0]);
+            strcpy(score[j-1][0], score[j][0]);
+            strcpy(score[j][0], temp);
+            
+            strcpy(temp, score[j-1][1]);
+            strcpy(score[j-1][1], score[j][1]);
+            strcpy(score[j][1], temp);
+            
+            strcpy(temp, score[j-1][2]);
+            strcpy(score[j-1][2], score[j][2]);
+            strcpy(score[j][2], temp);
+          }
+        }
+      }
+
+      for (int i=0; i<20; i++) {
+        for (int j=0; j<3; j++) {
+          printf("%s  ", score[i][j]);
+        }
+        printf("\n");
+      }
+      
+      printf("\n");
+    }
+
+    if (choice==2) {
+      for (int i=0; i<19; i++) {
+        for (int j=19 ; j>i; j--) {
+          if (strcmp(score[j-1][1], score[j][1]) > 0) {
+            char temp[20];
+            
+            strcpy(temp, score[j-1][0]);
+            strcpy(score[j-1][0], score[j][0]);
+            strcpy(score[j][0], temp);
+            
+            strcpy(temp, score[j-1][1]);
+            strcpy(score[j-1][1], score[j][1]);
+            strcpy(score[j][1], temp);
+            
+            strcpy(temp, score[j-1][2]);
+            strcpy(score[j-1][2], score[j][2]);
+            strcpy(score[j][2], temp);
+          }
+        }
+      }
+
+      for (int i=0; i<20; i++) {
+        for (int j=0; j<3; j++) {
+          printf("%s  ", score[i][j]);
+        }
+        printf("\n");
+      }
+      
+      printf("\n");
+    }
+
+    if (choice==3) {
+      for (int i=0; i<19; i++) {
+        for (int j=0; j<19-i; j++) {
+          if (strcmp(score[j][2], score[j+1][2]) < 0) {
+            char temp[20];
+            strcpy(temp, score[j][0]);
+            strcpy(score[j][0], score[j+1][0]);
+            strcpy(score[j+1][0], temp);
+            
+            strcpy(temp, score[j][1]);
+            strcpy(score[j][1], score[j+1][1]);
+            strcpy(score[j+1][1], temp);
+            
+            strcpy(temp, score[j][2]);
+            strcpy(score[j][2], score[j+1][2]);
+            strcpy(score[j+1][2], temp);
+          }
+        }
+      }
+
+      for (int i=0; i<20; i++) {
+        for (int j=0; j<3; j++) {
+          printf("%s  ", score[i][j]);
+        }
+        printf("\n");
+      }
+      
+      printf("\n");
+    }  
+    
+    if (choice==4) {
+      printf("이름을 입력하세요 : ");
+      char who[] = " ";
+      scanf("%s", &who);
+      printf("\n");
+      
+      for (int i=0; i<20; i++) {
+        if(strcmp(who, score[i][0])==0) {
+          printf("이름  학번  점수\n");
+          printf("%s  %s  %s\n\n", score[i][0], score[i][1], score[i][2]);
+        }
+      }
+    }
+    
+    if (choice==5) {
+      running = 0;
+      break;
+    }
+  }
+  
+  return 0;
+}

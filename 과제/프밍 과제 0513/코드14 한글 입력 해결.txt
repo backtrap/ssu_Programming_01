@@ -1,0 +1,33 @@
+int main(void) {
+  int tt = 1;
+  int t = 1;
+  int start = 0;
+
+  while (t==1) {
+    printf("하하! \n \n");
+    
+    while (tt==1) {
+        printf("계속 하시겠습니까?");
+        char answer;
+        scanf(" %c", &answer);
+        getchar();
+  
+        printf("\n");
+
+        if (answer >= -80 && answer <= -1) {
+          getchar(); // 한글 자음/모음 입력 제거
+        }
+        
+        if (answer=='y') break;
+        else if (answer=='n') {
+          t++;
+          break;
+        }
+        else continue;
+    }
+    
+    if (start==1) continue;
+  }
+
+    return 0;
+}

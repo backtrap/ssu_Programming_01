@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+  srand((unsigned)time(NULL));
+
+  printf("%d\n", rand()); // 랜덤 변수 생성
+  printf("%d\n", rand());
+  printf("%d\n", rand());
+
+  printf("%d\n", rand()%3); // 랜덤 변수로 묵 찌 빠 구분
+  printf("%d\n", rand()%3);
+  printf("%d\n", rand()%3);
+
+  return 0;
+}

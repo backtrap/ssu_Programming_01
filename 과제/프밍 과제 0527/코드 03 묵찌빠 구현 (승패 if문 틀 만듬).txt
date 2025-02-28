@@ -1,0 +1,206 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+  int running = 0;
+  int rock = 0;
+  int scissor = 1;
+  int paper = 2;
+  int u_rsp, c_rsp;
+  int rrsspp = 0;
+  int turn; // 0이면 user, 1이면 cpu 선공
+  
+  while (running==0) {
+    srand((unsigned)time(NULL)); // 시드 생성 및 갱신
+    
+    int rsp = 0;
+    int rrsspp = 0;
+    char user_rsp;
+    char cpu_rsp;
+
+    printf("묵(O)찌(X)빠(#) 게임을 시작합니다. \n\n\n");
+
+    // 가위바위보
+    while (rsp==0) {
+      srand((unsigned)time(NULL));
+      
+      printf("선을 정하기 위해 먼저 가위 바위 보를 선택하세요 : ");
+      scanf(" %c", &user_rsp);
+
+      // 컴퓨터 가위바위보 정하기
+      c_rsp = rand()%3;
+
+      if (c_rsp==0)
+        cpu_rsp = 'O';
+      else if (c_rsp==1)
+        cpu_rsp = 'X';
+      else if (c_rsp==2)
+        cpu_rsp = '#';
+
+      printf("\n");
+      
+      if (user_rsp=='O') {
+        if (cpu_rsp=='O') {
+          printf("당신은 O를 냈고 컴퓨터는 O를 냈습니다. \n\n");
+          printf("당신과 컴퓨터가 비겼습니다. \n\n\n");
+          continue;
+        }
+        else if (cpu_rsp=='X') {
+          printf("당신은 O를 냈고 컴퓨터는 X를 냈습니다. \n\n");
+          turn = 0;
+          break;
+        }
+        else if (cpu_rsp=='#') {
+          printf("당신은 O를 냈고 컴퓨터는 #를 냈습니다. \n\n");
+          turn = 1;
+          break;
+        }
+      }
+      else if (user_rsp=='X') {
+        if (cpu_rsp=='O') {
+          printf("당신은 X를 냈고 컴퓨터는 O를 냈습니다. \n\n"); 
+          turn = 1;
+          break;
+        }
+        else if (cpu_rsp=='X') {
+          printf("당신은 X를 냈고 컴퓨터는 X를 냈습니다. \n\n");
+          printf("당신과 컴퓨터가 비겼습니다. \n\n\n");
+          continue;
+        }
+        else if (cpu_rsp=='#') {
+          printf("당신은 X를 냈고 컴퓨터는 #를 냈습니다. \n\n"); 
+          turn = 0;
+          break;
+        }
+      }
+      else if (user_rsp=='#') {
+        if (cpu_rsp=='O') {
+          printf("당신은 #를 냈고 컴퓨터는 O를 냈습니다. \n\n"); 
+          turn = 0;
+          break;
+        }
+        else if (cpu_rsp=='X') {
+          printf("당신은 #를 냈고 컴퓨터는 X를 냈습니다. \n\n"); 
+          turn = 1;
+          break;
+        }
+        else if (cpu_rsp=='#') {
+          printf("당신은 #를 냈고 컴퓨터는 #를 냈습니다. \n\n");
+          printf("당신과 컴퓨터가 비겼습니다. \n\n\n");
+          continue;
+        }
+      }
+    }
+
+    // 묵찌빠
+    while (rrsspp==0) {
+      // 유저 공격 차례
+      if (turn==0) { 
+        // 시드 갱신 - 컴퓨터 묵찌빠 수정
+        srand((unsigned)time(NULL));
+        c_rsp = rand()%3;
+
+        if (c_rsp==0)
+          cpu_rsp = 'O';
+        else if (c_rsp==1)
+          cpu_rsp = 'X';
+        else if (c_rsp==2)
+          cpu_rsp = '#';
+        
+        printf("당신의 공격 차례입니다. \n\n\n");
+        printf("묵찌빠를 선택하세요: ");
+        scanf(" %c", user_rsp);
+        printf("\n");
+
+        if (user_rsp=='O') {
+          if (cpu_rsp=='O') {
+            printf("당신은 O를 냈고 컴퓨터는 O를 냈습니다. \n\n");
+            printf("당신과 컴퓨터가 비겼습니다. \n\n\n");
+            continue;
+          }
+          else if (cpu_rsp=='X') {
+            printf("당신은 O를 냈고 컴퓨터는 X를 냈습니다. \n\n");
+            turn = 0;
+            break;
+          }
+          else if (cpu_rsp=='#') {
+            printf("당신은 O를 냈고 컴퓨터는 #를 냈습니다. \n\n");
+            turn = 1;
+            break;
+          }
+        }
+        else if (user_rsp=='X') {
+          if (cpu_rsp=='O') {
+            printf("당신은 X를 냈고 컴퓨터는 O를 냈습니다. \n\n"); 
+            turn = 1;
+            break;
+          }
+          else if (cpu_rsp=='X') {
+            printf("당신은 X를 냈고 컴퓨터는 X를 냈습니다. \n\n");
+            printf("당신과 컴퓨터가 비겼습니다. \n\n\n");
+            continue;
+          }
+          else if (cpu_rsp=='#') {
+            printf("당신은 X를 냈고 컴퓨터는 #를 냈습니다. \n\n"); 
+            turn = 0;
+            break;
+          }
+        }
+        else if (user_rsp=='#') {
+          if (cpu_rsp=='O') {
+            printf("당신은 #를 냈고 컴퓨터는 O를 냈습니다. \n\n"); 
+            turn = 0;
+            break;
+          }
+          else if (cpu_rsp=='X') {
+            printf("당신은 #를 냈고 컴퓨터는 X를 냈습니다. \n\n"); 
+            turn = 1;
+            break;
+          }
+          else if (cpu_rsp=='#') {
+            printf("당신은 #를 냈고 컴퓨터는 #를 냈습니다. \n\n");
+            printf("당신과 컴퓨터가 비겼습니다. \n\n\n");
+            continue;
+          }
+        }
+      }
+      // 컴퓨터 공격 차례
+      else if (turn==1) {
+        // 시드 갱신 - 컴퓨터 묵찌빠 수정
+        srand((unsigned)time(NULL));
+        c_rsp = rand()%3;
+
+        if (c_rsp==0)
+          cpu_rsp = 'O';
+        else if (c_rsp==1)
+          cpu_rsp = 'X';
+        else if (c_rsp==2)
+          cpu_rsp = '#';
+        
+        printf("컴퓨터의 공격 차례입니다. \n\n\n");
+        printf("묵찌빠를 선택하세요.");
+        scanf(" %c", user_rsp);
+        printf("\n");
+
+        
+        
+      }
+    }
+      
+    printf("\n");
+
+    printf("cpu의 묵찌빠는 %c입니다 \n", cpu_rsp);
+    // printf("당신은 %c를 냈고 컴퓨터는 %c를 냈습니다.", );
+
+    printf("더 하시겠습니까? ");
+    char yorn;
+    scanf(" %c", &yorn);
+    if (yorn=='y') {
+      running++;
+      break;
+    }
+    else if (yorn=='n')
+      continue;
+  }
+}

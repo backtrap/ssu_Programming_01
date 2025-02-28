@@ -1,0 +1,14 @@
+#include <stdlib.h>
+#include <time.h>
+
+unsinged secret, guess, i, num = 1;
+_Bool game = 1, win = 0;
+char again;
+
+srand(time(NULL));
+
+secret = rand() % 100;
+
+..~~~~..
+
+srand((unsigned)time(NULL));

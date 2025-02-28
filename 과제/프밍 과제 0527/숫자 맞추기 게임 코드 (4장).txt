@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(void){
+  unsigned secret, guess, i, num = 1;
+  _Bool game = 1, win = 0;
+  char again;
+  printf("=== 게임 시작 ===\n");
+  srand(time(NULL));
+  while (game){
+    printf("\n= %u 번째 게임 =\n", num++);
+    secret = rand() % 100;
+    win = 0;
+    i = 1;
+    while (i++ <= 7) {
+      printf("0부터 99 사이의 수를 입력하세요 :");
+      scanf("%u", &guess);
+      if (guess == secret) {
+        win = 1;
+        i = 8;
+      }
+            else if (guess < secret)
+        printf(" %u 보다 큰 수입니다.\n", guess);
+      else
+        printf(" %u 보다 작은 수입니다.\n", guess);
+    } 
+    if (win) 
+      printf("이겼습니다. 축하합니다.\n");
+    else
+      printf("졌습니다. %d이 였습니다. 다시 시도하세요.\n", secret);
+    printf("\n다시 하겠습니까? (y/n) ");
+    getchar(); // 개행 문자 삭제
+    again = getchar();
+    if (!(again == 'y' || again == 'Y'))
+      game = 0;
+  }
+  printf("=== 게임 종료 ===\n");
+  return 0;
+}
+

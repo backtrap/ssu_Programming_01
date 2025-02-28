@@ -1,0 +1,514 @@
+#include <stdio.h>
+
+int main(void) {
+  
+  int t = 1;
+  
+  while(t==1) {
+    int tt = 1;
+    int ttt = 1;
+    int re = 0;
+
+    // 숫자 받기 
+    char n1_01 = '0';
+    char n1_02 = '0';
+    char n1_03 = '0';
+    char n1_04 = '0';
+    char n1_05 = '0';
+    char n1_06 = '0';
+    char n1_07 = '0';
+    char n1_08 = '0';
+    char n1_09 = '0';
+    char n1_10 = '0';
+  
+    char n2_01 = '0';
+    char n2_02 = '0';
+    char n2_03 = '0';
+    char n2_04 = '0';
+    char n2_05 = '0';
+    char n2_06 = '0';
+    char n2_07 = '0';
+    char n2_08 = '0';
+    char n2_09 = '0';
+    char n2_10 = '0';
+    int i = 1;
+    int j = 1;
+
+    char c;
+    char op01, op02;
+    printf("숫자를 입력해 주세요 : ");
+  
+    while ((c=getchar())!=EOF) {
+      if (c=='+' || c=='\n') break;       
+      else if (c>='0' && c<='9') {
+        if (i==1) n1_01 = c;
+        else if (i==2) n1_02 = c;
+        else if (i==3) n1_03 = c;
+        else if (i==4) n1_04 = c;
+        else if (i==5) n1_05 = c;
+        else if (i==6) n1_06 = c;
+        else if (i==7) n1_07 = c;
+        else if (i==8) n1_08 = c;
+        else if (i==9) n1_09 = c;
+        else if (i==10) n1_10 = c;
+        
+        i++;
+      }
+
+      else {
+        if (c==' ') ;
+        else re = 1;       
+      }
+    }
+    
+    while ((c=getchar())!=EOF) {
+      if (c=='+' || c=='\n') break;
+      else if (c>='0' && c<='9') {
+        if (j==1) n2_01 = c;
+        else if (j==2) n2_02 = c;
+        else if (j==3) n2_03 = c;
+        else if (j==4) n2_04 = c;
+        else if (j==5) n2_05 = c;
+        else if (j==6) n2_06 = c;
+        else if (j==7) n2_07 = c;
+        else if (j==8) n2_08 = c;
+        else if (j==9) n2_09 = c;
+        else if (j==10) n2_10 = c;
+        
+        j++;
+      }
+        
+      else {
+        if (c==' ') ;
+        else re = 1;       
+      }
+    }
+
+    if (re==1) {
+      printf("잘못된 연산자입니다.");
+      while (tt==1) {
+        printf("계속 하시겠습니까?");
+        char answer;
+        scanf("%c", &answer);
+        getchar();
+        
+        if (answer=='y') {
+          re = 0;
+          break;
+        }
+        else if (answer=='n') {
+          t++;
+          break;
+        }
+      }
+      continue;
+    }
+    
+    // 계산용 숫자로 만들기
+    
+    int ii = i-1;
+    int jj = j-1;
+  
+    char nn1_01 = '0';
+    char nn1_02 = '0';
+    char nn1_03 = '0';
+    char nn1_04 = '0';
+    char nn1_05 = '0';
+    char nn1_06 = '0';
+    char nn1_07 = '0';
+    char nn1_08 = '0';
+    char nn1_09 = '0';
+    char nn1_10 = '0';
+    
+    char nn2_01 = '0';
+    char nn2_02 = '0';
+    char nn2_03 = '0';
+    char nn2_04 = '0';
+    char nn2_05 = '0';
+    char nn2_06 = '0';
+    char nn2_07 = '0';
+    char nn2_08 = '0';
+    char nn2_09 = '0';
+    char nn2_10 = '0';
+  
+    if (ii==0) {
+      nn1_01 = n1_01;
+      nn1_02 = n1_02;
+      nn1_03 = n1_03;
+      nn1_04 = n1_04;
+      nn1_05 = n1_05;
+      nn1_06 = n1_06;
+      nn1_07 = n1_07;
+      nn1_08 = n1_08;
+      nn1_09 = n1_09;
+      nn1_10 = n1_10;
+    }
+    else if (ii==1) {
+      nn1_01 = n1_01;
+      nn1_02 = '0';
+      nn1_03 = '0';
+      nn1_04 = '0';
+      nn1_05 = '0';
+      nn1_06 = '0';
+      nn1_07 = '0';
+      nn1_08 = '0';
+      nn1_09 = '0';
+      nn1_10 = '0';
+    }
+    else if (ii==2) {
+      nn1_01 = n1_02;
+      nn1_02 = n1_01;
+      nn1_03 = '0';
+      nn1_04 = '0';
+      nn1_05 = '0';
+      nn1_06 = '0';
+      nn1_07 = '0';
+      nn1_08 = '0';
+      nn1_09 = '0';
+      nn1_10 = '0';
+    }
+    else if (ii==3) {
+      nn1_01 = n1_03;
+      nn1_02 = n1_02;
+      nn1_03 = n1_01;
+      nn1_04 = '0';
+      nn1_05 = '0';
+      nn1_06 = '0';
+      nn1_07 = '0';
+      nn1_08 = '0';
+      nn1_09 = '0';
+      nn1_10 = '0';
+    }
+    else if (ii==4) {
+      nn1_01 = n1_04;
+      nn1_02 = n1_03;
+      nn1_03 = n1_02;
+      nn1_04 = n1_01;
+      nn1_05 = '0';
+      nn1_06 = '0';
+      nn1_07 = '0';
+      nn1_08 = '0';
+      nn1_09 = '0';
+      nn1_10 = '0';
+    }
+    else if (ii==5) {
+      nn1_01 = n1_05;
+      nn1_02 = n1_04;
+      nn1_03 = n1_03;
+      nn1_04 = n1_02;
+      nn1_05 = n1_01;
+      nn1_06 = '0';
+      nn1_07 = '0';
+      nn1_08 = '0';
+      nn1_09 = '0';
+      nn1_10 = '0';
+    }
+    else if (ii==6) {
+      nn1_01 = n1_06;
+      nn1_02 = n1_05;
+      nn1_03 = n1_04;
+      nn1_04 = n1_03;
+      nn1_05 = n1_02;
+      nn1_06 = n1_01;
+      nn1_07 = '0';
+      nn1_08 = '0';
+      nn1_09 = '0';
+      nn1_10 = '0';
+    }
+    else if (ii==7) {
+      nn1_01 = n1_07;
+      nn1_02 = n1_06;
+      nn1_03 = n1_05;
+      nn1_04 = n1_04;
+      nn1_05 = n1_03;
+      nn1_06 = n1_02;
+      nn1_07 = n1_01;
+      nn1_08 = '0';
+      nn1_09 = '0';
+      nn1_10 = '0';
+    }
+    else if (ii==8) {
+      nn1_01 = n1_08;
+      nn1_02 = n1_07;
+      nn1_03 = n1_06;
+      nn1_04 = n1_05;
+      nn1_05 = n1_04;
+      nn1_06 = n1_03;
+      nn1_07 = n1_02;
+      nn1_08 = n1_01;
+      nn1_09 = '0';
+      nn1_10 = '0';
+    }
+    else if (ii==9) {
+      nn1_01 = n1_09;
+      nn1_02 = n1_08;
+      nn1_03 = n1_07;
+      nn1_04 = n1_06;
+      nn1_05 = n1_05;
+      nn1_06 = n1_04;
+      nn1_07 = n1_03;
+      nn1_08 = n1_02;
+      nn1_09 = n1_01;
+      nn1_10 = '0';
+    }
+    else if (ii==10) {
+      nn1_01 = n1_10;
+      nn1_02 = n1_09;
+      nn1_03 = n1_08;
+      nn1_04 = n1_07;
+      nn1_05 = n1_06;
+      nn1_06 = n1_05;
+      nn1_07 = n1_04;
+      nn1_08 = n1_03;
+      nn1_09 = n1_02;
+      nn1_10 = n1_01;
+    }
+  
+    
+    if (jj==0) {
+      nn2_01 = n2_01;
+      nn2_02 = n2_02;
+      nn2_03 = n2_03;
+      nn2_04 = n2_04;
+      nn2_05 = n2_05;
+      nn2_06 = n2_06;
+      nn2_07 = n2_07;
+      nn2_08 = n2_08;
+      nn2_09 = n2_09;
+      nn2_10 = n2_10;
+    }
+    else if (jj==1) {
+      nn2_01 = n2_01;
+      nn2_02 = '0';
+      nn2_03 = '0';
+      nn2_04 = '0';
+      nn2_05 = '0';
+      nn2_06 = '0';
+      nn2_07 = '0';
+      nn2_08 = '0';
+      nn2_09 = '0';
+      nn2_10 = '0';
+    }
+    else if (jj==2) {
+      nn2_01 = n2_02;
+      nn2_02 = n2_01;
+      nn2_03 = '0';
+      nn2_04 = '0';
+      nn2_05 = '0';
+      nn2_06 = '0';
+      nn2_07 = '0';
+      nn2_08 = '0';
+      nn2_09 = '0';
+      nn2_10 = '0';
+    }
+    else if (jj==3) {
+      nn2_01 = n2_03;
+      nn2_02 = n2_02;
+      nn2_03 = n2_01;
+      nn2_04 = '0';
+      nn2_05 = '0';
+      nn2_06 = '0';
+      nn2_07 = '0';
+      nn2_08 = '0';
+      nn2_09 = '0';
+      nn2_10 = '0';
+    }
+    else if (jj==4) {
+      nn2_01 = n2_04;
+      nn2_02 = n2_03;
+      nn2_03 = n2_02;
+      nn2_04 = n2_01;
+      nn2_05 = '0';
+      nn2_06 = '0';
+      nn2_07 = '0';
+      nn2_08 = '0';
+      nn2_09 = '0';
+      nn2_10 = '0';
+    }
+    else if (jj==5) {
+      nn2_01 = n2_05;
+      nn2_02 = n2_04;
+      nn2_03 = n2_03;
+      nn2_04 = n2_02;
+      nn2_05 = n2_01;
+      nn2_06 = '0';
+      nn2_07 = '0';
+      nn2_08 = '0';
+      nn2_09 = '0';
+      nn2_10 = '0';
+    }
+    else if (jj==6) {
+      nn2_01 = n2_06;
+      nn2_02 = n2_05;
+      nn2_03 = n2_04;
+      nn2_04 = n2_03;
+      nn2_05 = n2_02;
+      nn2_06 = n2_01;
+      nn2_07 = '0';
+      nn2_08 = '0';
+      nn2_09 = '0';
+      nn2_10 = '0';
+    }
+    else if (jj==7) {
+      nn2_01 = n2_07;
+      nn2_02 = n2_06;
+      nn2_03 = n2_05;
+      nn2_04 = n2_04;
+      nn2_05 = n2_03;
+      nn2_06 = n2_02;
+      nn2_07 = n2_01;
+      nn2_08 = '0';
+      nn2_09 = '0';
+      nn2_10 = '0';
+    }
+    else if (jj==8) {
+      nn2_01 = n2_08;
+      nn2_02 = n2_07;
+      nn2_03 = n2_06;
+      nn2_04 = n2_05;
+      nn2_05 = n2_04;
+      nn2_06 = n2_03;
+      nn2_07 = n2_02;
+      nn2_08 = n2_01;
+      nn2_09 = '0';
+      nn2_10 = '0';
+    }
+    else if (jj==9) {
+      nn2_01 = n2_09;
+      nn2_02 = n2_08;
+      nn2_03 = n2_07;
+      nn2_04 = n2_06;
+      nn2_05 = n2_05;
+      nn2_06 = n2_04;
+      nn2_07 = n2_03;
+      nn2_08 = n2_02;
+      nn2_09 = n2_01;
+      nn2_10 = '0';
+    }
+    else if (jj==10) {
+      nn2_01 = n2_10;
+      nn2_02 = n2_09;
+      nn2_03 = n2_08;
+      nn2_04 = n2_07;
+      nn2_05 = n2_06;
+      nn2_06 = n2_05;
+      nn2_07 = n2_04;
+      nn2_08 = n2_03;
+      nn2_09 = n2_02;
+      nn2_10 = n2_01;
+    }
+  
+  
+    // 자릿수 계산
+    
+    int dig_01=0;
+    int dig_02=0;
+    int dig_03=0;
+    int dig_04=0;
+    int dig_05=0;
+    int dig_06=0;
+    int dig_07=0;
+    int dig_08=0;
+    int dig_09=0;
+    int dig_10=0;
+  
+    int det_01=0;
+    int det_02=0;
+    int det_03=0;
+    int det_04=0;
+    int det_05=0;
+    int det_06=0;
+    int det_07=0;
+    int det_08=0;
+    int det_09=0;
+    int det_10=0;
+  
+    
+    // char을 int로 바꾸기
+    int nnn1_01 = (int)nn1_01-48;
+    int nnn1_02 = (int)nn1_02-48;
+    int nnn1_03 = (int)nn1_03-48;
+    int nnn1_04 = (int)nn1_04-48;
+    int nnn1_05 = (int)nn1_05-48;
+    int nnn1_06 = (int)nn1_06-48;
+    int nnn1_07 = (int)nn1_07-48;
+    int nnn1_08 = (int)nn1_08-48;
+    int nnn1_09 = (int)nn1_09-48;
+    int nnn1_10 = (int)nn1_10-48;
+  
+    int nnn2_01 = (int)nn2_01-48;
+    int nnn2_02 = (int)nn2_02-48;
+    int nnn2_03 = (int)nn2_03-48;
+    int nnn2_04 = (int)nn2_04-48;
+    int nnn2_05 = (int)nn2_05-48;
+    int nnn2_06 = (int)nn2_06-48;
+    int nnn2_07 = (int)nn2_07-48;
+    int nnn2_08 = (int)nn2_08-48;
+    int nnn2_09 = (int)nn2_09-48;
+    int nnn2_10 = (int)nn2_10-48;
+    
+    
+    // 계산식
+    dig_01 = (nnn1_01+nnn2_01)%10;
+    if ((nnn1_01+nnn2_01)>=10) det_02=1;
+    
+    dig_02 = (nnn1_02+nnn2_02+det_02)%10;
+    if ((nnn1_02+nnn2_02+det_02)>=10) det_03=1;
+  
+    dig_02 = (nnn1_02+nnn2_02+det_02)%10;
+    if ((nnn1_02+nnn2_02+det_02)>=10) det_03=1;
+  
+    dig_03 = (nnn1_03+nnn2_03+det_03)%10;
+    if ((nnn1_03+nnn2_03+det_03)>=10) det_04=1;
+  
+    dig_04 = (nnn1_04+nnn2_04+det_04)%10;
+    if ((nnn1_04+nnn2_04+det_04)>=10) det_05=1;
+  
+    dig_05 = (nnn1_05+nnn2_05+det_05)%10;
+    if ((nnn1_05+nnn2_05+det_05)>=10) det_06=1;
+  
+    dig_06 = (nnn1_06+nnn2_06+det_06)%10;
+    if ((nnn1_06+nnn2_06+det_06)>=10) det_07=1;
+  
+    dig_07 = (nnn1_07+nnn2_07+det_07)%10;
+    if ((nnn1_07+nnn2_07+det_07)>=10) det_08=1;
+  
+    dig_08 = (nnn1_08+nnn2_08+det_08)%10;
+    if ((nnn1_08+nnn2_08+det_08)>=10) det_09=1;
+  
+    dig_09 = (nnn1_09+nnn2_09+det_09)%10;
+    if ((nnn1_09+nnn2_09+det_09)>=10) det_10=1;
+  
+    dig_10 = (nnn1_10+nnn2_10+det_10)%10;
+    if ((nnn1_10+nnn2_10+det_10)>=10) {
+      int overflow = 1;
+    }
+  
+  
+    printf("숫자를 출력하겠습니다. \n \n");
+  
+    printf("자릿수는 각각 %d, %d입니다. \n", ii, jj);
+    printf("숫자를 출력하겠습니다. \n \n");
+    
+    printf("입력받은 숫자는 %c,%c%c%c,%c%c%c,%c%c%c 입니다.\n", nn1_10, nn1_09, nn1_08, nn1_07, nn1_06, nn1_05, nn1_04, nn1_03, nn1_02, nn1_01);
+    printf("입력받은 숫자는 %c,%c%c%c,%c%c%c,%c%c%c 입니다.\n", nn2_10, nn2_09, nn2_08, nn2_07, nn2_06, nn2_05, nn2_04, nn2_03, nn2_02, nn2_01);
+  
+    printf("계산한 숫자는 %d,%d%d%d,%d%d%d,%d%d%d입니다. \n", dig_10, dig_09, dig_08, dig_07, dig_06, dig_05, dig_04, dig_03, dig_02, dig_01);
+
+    while (tt==1) {
+      printf("계속 하시겠습니까?");
+      char answer;
+      scanf("%c", &answer);
+      getchar();
+      
+      if (answer=='y') break;
+      else if (answer=='n') {
+        t++;
+        break;
+      }
+      else continue;
+    }
+  }
+  
+  return 0;
+}
